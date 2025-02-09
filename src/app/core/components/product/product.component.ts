@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ProductService } from '../../services/product.service';
+import { product } from '../../../shared/models/product.model';
 
 @Component({
   selector: 'app-product',
@@ -8,7 +10,13 @@ import { Component } from '@angular/core';
 })
 export class ProductComponent {
 
-  constructor() {
+  p: product | undefined;
 
+  constructor(private sproduct: ProductService) {
+    sproduct.findById(1).subscribe({
+      next: (p) => this.p = p,
+      error: (err) => console.error(err),
+      complete: () => console.info("completed")
+    })
   }
 }

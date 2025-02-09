@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { provideHttpClient, withFetch } from '@angular/common/http';
 import { ProductComponent } from './components/product/product.component';
+import { ProductService } from './services/product.service';
 
 
 
@@ -15,7 +16,8 @@ import { ProductComponent } from './components/product/product.component';
     FormsModule,
   ],
   providers: [
-    provideHttpClient(withFetch())
+    provideHttpClient(withFetch()),
+    ProductService
   ],
   exports: [
     ProductComponent
