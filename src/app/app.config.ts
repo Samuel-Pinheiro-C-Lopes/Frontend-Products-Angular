@@ -7,3 +7,7 @@ import { provideClientHydration } from '@angular/platform-browser';
 export const appConfig: ApplicationConfig = {
   providers: [provideRouter(routes), provideClientHydration()]
 };
+
+export const API_CONFIGS = {
+  baseUrl: 'http://localhost:8080'
+}
