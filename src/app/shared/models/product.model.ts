@@ -1,6 +1,6 @@
 // Class to represent the products
 export class product {
-    id?: number;
+    id: number = 0;
     amount?: number;
     name?: string;
     price?: number;
@@ -8,7 +8,7 @@ export class product {
 
 // Interface for data received from the API
 export interface product {
-    id?: number;
+    id: number;
     amount?: number;
     name?: string;
     price?: number;

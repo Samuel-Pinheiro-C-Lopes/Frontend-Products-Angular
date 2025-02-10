@@ -15,10 +15,13 @@ export class ProductComponent implements OnInit{
   product: product;
   sub: Subscription;
 
+  showBtn: boolean;
+
   constructor(private service: ProductService) {
     this.products = [];
     this.product = new product();
     this.sub = new Subscription();
+    this.showBtn = false;
   }
 
   ngOnInit() {
@@ -34,6 +37,23 @@ export class ProductComponent implements OnInit{
     next: () => this.findAll(),
     error: (err) => console.error(err)
   });
+
+  update = (product: product): Subscription => this.service.update(product).subscribe({
+    next: () => this.findAll(),
+    error: (err) => console.error(err)
+  })
+
+
+
+  delete = (id: number): Subscription => this.service.delete(id).subscribe({
+    next: () => this.findAll(),
+    error: (err) => console.error(err)
+  })
+
+  updateActual = (product: product):void => {
+    this.product = product;
+    this.showBtn = true;
+  }
 
   clearSub = (): void => this.sub.unsubscribe();
 

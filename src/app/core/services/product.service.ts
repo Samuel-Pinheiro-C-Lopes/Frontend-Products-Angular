@@ -19,6 +19,6 @@ export class ProductService {
 
   update = (product: product): Observable<product> => this.client.put<product>(`${API_CONFIGS.baseUrl}/products`, product);
 
-  delete = (id: number): Observable<void> => this.client.delete<void>(`${API_CONFIGS.baseUrl}/${id}`);
-  
+  delete = (id: number): Observable<void> => this.client.delete<void>(`${API_CONFIGS.baseUrl}/products/${id}`);
+
 }

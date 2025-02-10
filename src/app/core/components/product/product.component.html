@@ -46,6 +46,16 @@
         >
             Add
         </button>
+
+        @if(showBtn) {
+            <button
+                class="btn btn-primary"
+                [disabled]="name.invalid || amount.invalid || price.invalid"
+                (click)="update(product)"
+            >
+                Update
+            </button>
+        }
     </form>
 </div>
 
@@ -67,9 +77,9 @@
             <tr>
                 <td>{{p.name}}</td>
                 <td>{{p.amount}}</td>
-                <td>{{p.price}}</td>
-                <td><button class="btn btn-warning">Update</button></td>
-                <td><button class="btn btn-danger">Delete</button></td>
+                <td>{{p.price | currency: 'BRL': 'symbol' : '1.2-2'}}</td>
+                <td><button (click)="updateActual(p)" class="btn btn-warning">Update</button></td>
+                <td><button (click)="delete(p.id)" class="btn btn-danger">Delete</button></td>
             </tr>
         }
         </tbody>
