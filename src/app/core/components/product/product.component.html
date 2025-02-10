@@ -39,23 +39,25 @@
             >
         </div>
 
-        <button 
-            class="mt-3 btn btn-success" 
-            (click)="save(product)"
-            [disabled]="name.invalid || amount.invalid || price.invalid"
-        >
-            Add
-        </button>
-
-        @if(showBtn) {
-            <button
-                class="btn btn-primary"
+        <div class="mt-3 d-flex justify-content-between">
+            <button 
+                class="btn btn-success" 
+                (click)="save(product)"
                 [disabled]="name.invalid || amount.invalid || price.invalid"
-                (click)="update(product)"
             >
-                Update
+                Add
             </button>
-        }
+
+            @if(showBtn) {
+                <button
+                    class="btn btn-primary ms-auto"
+                    [disabled]="name.invalid || amount.invalid || price.invalid"
+                    (click)="update(product)"
+                >
+                    Update
+                </button>
+            }
+        </div>
     </form>
 </div>
 
