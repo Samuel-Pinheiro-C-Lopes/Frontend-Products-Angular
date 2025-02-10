@@ -48,3 +48,30 @@
         </button>
     </form>
 </div>
+
+<hr />
+
+<div class="container">
+    <table class="w-70 mx-auto table">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Amount</th>
+            <th scope="col">Price</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+        @for (p of products; track p.id) {
+            <tr>
+                <td>{{p.name}}</td>
+                <td>{{p.amount}}</td>
+                <td>{{p.price}}</td>
+                <td><button class="btn btn-warning">Update</button></td>
+                <td><button class="btn btn-danger">Delete</button></td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>
